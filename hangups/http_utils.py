@@ -7,6 +7,7 @@ import hashlib
 import logging
 import time
 import urllib.parse
+import socket
 
 from hangups import exceptions
 
@@ -29,7 +30,10 @@ class Session(object):
 
     def __init__(self, cookies, proxy=None):
         self._proxy = proxy
-        self._session = aiohttp.ClientSession(cookies=cookies,
+        loop = asyncio.get_event_loop()
+        conn = aiohttp.TCPConnector(use_dns_cache=False, verify_ssl=False, family=socket.AF_INET6, loop=loop)
+        self._session = aiohttp.ClientSession(connector=conn,
+                                              cookies=cookies,
                                               conn_timeout=CONNECT_TIMEOUT)
         sapisid = cookies['SAPISID']
         self._authorization_headers = _get_authorization_headers(sapisid)

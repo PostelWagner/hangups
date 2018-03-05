@@ -922,8 +922,23 @@ message DeleteAction {
 
 message InviteeID {
   optional string gaia_id = 1;
+  optional string t1 = 2;
+  optional string t2 = 3;
   optional string fallback_name = 4;
+  optional string t3 = 5;
+  repeated Invitees ids = 6;
 }
+
+message Email {
+  optional string email_name = 1;
+}
+
+message Invitees {
+  optional string t1 = 1;
+  repeated Email email = 2;
+  repeated Email email2 = 3;
+}
+
 
 enum SyncFilter {
   SYNC_FILTER_UNKNOWN = 0;

@@ -19,7 +19,7 @@ from .conversation_event import (
 # Only import Protocol Buffer objects that are needed for the high-level
 # hangups API (ConversationList, etc.) here. Low-level Client users could need
 # just about anything, and importing it here would create conflicts.
-from .hangouts_pb2 import (
+from .hangouts_pb2_backuo import (
     TYPING_TYPE_STARTED, TYPING_TYPE_PAUSED, TYPING_TYPE_STOPPED,
     MEMBERSHIP_CHANGE_TYPE_LEAVE, MEMBERSHIP_CHANGE_TYPE_JOIN,
     HANGOUT_EVENT_TYPE_START, HANGOUT_EVENT_TYPE_END, HANGOUT_EVENT_TYPE_JOIN,
