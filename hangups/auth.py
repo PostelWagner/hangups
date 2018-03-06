@@ -277,7 +277,7 @@ def _get_authorization_code(session, credentials_prompt):
         elif browser.has_selector(PHONE_CODE_SELECTOR):
             input_selector = PHONE_CODE_SELECTOR
         else:
-            logger.info(browser._browser.soup)
+            logger.info(browser._page.soup)
             raise GoogleAuthError('Unknown verification code input')
         verfification_code = credentials_prompt.get_verification_code()
         browser.submit_form(
