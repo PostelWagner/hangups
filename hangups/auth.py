@@ -276,6 +276,8 @@ def _get_authorization_code(session, credentials_prompt):
             input_selector = TOTP_CODE_SELECTOR
         elif browser.has_selector(PHONE_CODE_SELECTOR):
             input_selector = PHONE_CODE_SELECTOR
+        elif browser.has_selector("input[name=phoneNumber]"):
+            input_selector = "input[name=phoneNumber]"
         else:
             logger.info(browser._page.soup)
             raise GoogleAuthError('Unknown verification code input')
